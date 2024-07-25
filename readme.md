@@ -1,32 +1,34 @@
-## Como Usar Docker com Node.js
 
-### Sem Utilizar Docker Compose e Nodemon
+# How to Use Docker with Node.js
 
-#### 1. Gerando a Imagem
-`docker build -t devcarlos/docker-node .`
+### 1. Building the Image
 
-#### 2. Executando o Contêiner
+    docker build -t devcarlos/docker-node .
 
-**Simplesmente Executar:**
-`docker run -p 3000:3000 -d devcarlos/docker-node`
+### 2. Running the Container
 
-**Executar com Nome Específico:**
-`docker run --name node-app -p 3000:3000 -d devcarlos/docker-node`
+**Simply Run:**
 
-### Utilizando Docker Compose e Nodemon
+    docker run -p 3000:3000 -d devcarlos/docker-node
 
-#### 1. Subir os Serviços com Docker Compose
-`docker-compose up`
+**Run with a Specific Name:**
 
-### Utilizando Docker Compose e TypeScript
+    docker run --name node-app -p 3000:3000 -d devcarlos/docker-node
 
-#### 1. Adicionar Script no `package.json`
+## Using Docker Compose and Nodemon
 
-```
+### 1. Start the Services with Docker Compose
+
+    docker-compose up
+
+## Replacing nodemon with typescript
+
+### 1. Add Script to `package.json`
+
     "scripts": {
-    "start": "ts-node-dev --respawn --poll server.ts"
+      "start": "ts-node-dev --respawn --poll server.ts"
     }
-```
 
-### Iniciar o Contêiner Parado e Anexar para Ver os Logs
-`docker start -a <nome_ou_id_do_container>`
+## Start a Stopped Container and Attach to View Logs
+
+    docker start -a <container_name_or_id>
